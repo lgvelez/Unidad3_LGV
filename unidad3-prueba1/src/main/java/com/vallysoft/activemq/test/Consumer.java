@@ -22,7 +22,7 @@ public class Consumer {
 	// default broker URL is : tcp://localhost:61616"
 
 	// Name of the queue we will receive messages from
-	private static String subject = "VALLYSOFTQ";
+	private static String subject = "LDS";
 
 	public static void main(String[] args) throws JMSException {
 		// Getting JMS connection from the server
@@ -41,17 +41,21 @@ public class Consumer {
 
 		// Here we receive the message.
 		// By default this call is blocking, which means it will wait
-		// for a message to arrive on the queue.
-		Message message = consumer.receive();
+		for (int i = 1; i <= 100; i++) {
+			// for a message to arrive on the queue.
+			Message message = consumer.receive(); // receive();
 
-		// There are many types of Message and TextMessage
-		// is just one of them. Producer sent us a TextMessage
-		// so we must cast to it to get access to its .getText()
-		// method.
-		if (message instanceof TextMessage) {
-			TextMessage textMessage = (TextMessage) message;
-			System.out.println("Receivedage '" + textMessage.getText() + "'");
+			// There are many types of Message and TextMessage
+			// is just one of them. Producer sent us a TextMessage
+			// so we must cast to it to get access to its .getText()
+			// method.
+			if (message instanceof TextMessage) {
+				TextMessage textMessage = (TextMessage) message;
+				System.out.println("Receivedage '" + textMessage.getText() + "'");
+			}
+
 		}
 		connection.close();
+		System.out.println("fin ");
 	}
 }
