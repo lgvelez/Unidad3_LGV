@@ -58,7 +58,17 @@
 			<version>1.6.1</version>
 			<scope>test</scope>
 		</dependency>
-
+	    <!--  logback logging framework -->
+	    <dependency>
+	    	<groupId>ch.qos.logback</groupId>
+	    	<artifactId>Logback-core</artifactId>
+	    	<version>0.9.28</version>
+	    </dependency>
+	    <dependency>
+	    	<groupId>ch.qos.logback</groupId>
+	    	<artifactId>logback-classic</artifactId>
+	    	<version>0.9.28</version>	
+    	</dependency>
 
 	</dependencies>
 </project>
